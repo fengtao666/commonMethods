@@ -49,7 +49,7 @@ const createUniqueId = () => {
     };
 };
 
-
+// 防抖
 function debounce(fn, interval = 300) {
     let timeout = null;
     return function (...args) {
@@ -59,7 +59,7 @@ function debounce(fn, interval = 300) {
         }, interval);
     };
 }
-
+// 节流
 function throttle(fn, interval = 300) {
     let last = null;
 
@@ -124,3 +124,15 @@ const getQueryParams = (location = window.location.href) => {
     }
     return obj;
 };
+// 数组切割
+function group(array, subGroupLength) {
+    let index = 0;
+    let newArray = [];
+    while(index < array.length) {
+        newArray.push(array.slice(index, index += subGroupLength));
+    }
+    return newArray;
+}
+const arr = [1,2,3,4,5,6,7,8,9,9,3]
+var newArr = group(arr, 5)
+console.log('newArr', newArr);
